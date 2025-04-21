@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/javascript.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome 6 CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <title>Contact us</title>
+    <style>
+        .contact-section {
+            padding: 60px 20px;
+            background: #fff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+        
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .col-left {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .col-right {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .text-red {
+            color: #e74c3c;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        
+        .contact-list li {
+            margin-bottom: 8px;
+        }
+        
+        .contact-form .input-group {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        
+        .contact-form button {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #611010, #8d1c1c);
+            color: #fff;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .contact-form button:hover {
+            background: linear-gradient(135deg, #8d1c1c, #611010);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Loader -->
+    <div class="loader-wrapper">
+        <div class="loading-wave">
+            <div class="loading-bar"></div>
+            <div class="loading-bar"></div>
+            <div class="loading-bar"></div>
+            <div class="loading-bar"></div>
+        </div>
+    </div>
+    <!-- Header -->
+    <header class="header-container text-dark py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="header-logo font-weight-bold"><img src="../img/LOGO4.png" alt="" class="logo"></div>
+            <nav class="header-nav">
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link text-light" href="../html/index .html">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="../html/intro.html">Giới thiệu</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="#" onclick="scrollToSection('productions')">Sản phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="../html/news.html">Bài viết</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="../html/contact.html">Liên hệ</a></li>
+                </ul>
+            </nav>
+            <div class="header-search" id="main">
+                <input type="text" class="form-control d-inline w-75" placeholder="Tìm kiếm...">
+                <button class="btn">
+            <i class="fas fa-search"></i>
+        </button>
+            </div>
+            <!-- Button -->
+            <a href="../html/login.html" class="login">
+                <div class="sign">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                </div>
+                <div class="text"> Login</div>
+            </a>
+        </div>
+    </header>
+
+    <div class="container-md-12" style="margin-top: 104px;">
+        <img src="../img/map.png" alt="">
+    </div>
+    <section class="contact-section">
+        <div class="container">
+            <div class="row">
+                <!-- Thông tin liên hệ bên trái -->
+                <div class="col-left">
+                    <h5 class="text-red">THÔNG TIN</h5>
+                    <h2 class="mb-2">Liên hệ</h2>
+                    <p>Đến showroom Tinh Lâm để được tư vấn và xem sản phẩm trực tiếp</p>
+                    <h4 class="mt-4">Tinh Lâm</h4>
+                    <small class="d-block text-muted">
+                © 2021 Bản quyền thuộc Công Ty TNHH Phong Thủy Tinh Lâm...<br />
+                Địa chỉ: 280 E10 Lương Định Của, P. An Phú, Q.2, TP. Hồ Chí Minh.<br />
+                ĐT: 028 77799917
+              </small>
+                    <ul class="contact-list">
+                        <li><i class="fa-solid fa-location-dot"></i> Showroom 1: 280 E10 Lương Định Của, P. An Phú, Q.2</li>
+                        <li><i class="fa-solid fa-location-dot"></i> Showroom 2: 61C Phan Đình Phùng, Q.Phú Nhuận</li>
+                        <li><i class="fa-solid fa-location-dot"></i> Showroom 3: Tầng 2, chung cư 42 Nguyễn Huệ, Q.1</li>
+                        <li><i class="fa-solid fa-location-dot"></i> Showroom 4: 91 Xuân Thủy, P. Thảo Điền, Q.2</li>
+                        <li><i class="fa-solid fa-location-dot"></i> Showroom 5: 47 Hai Bà Trưng, P. Mỹ Long, Long Xuyên</li>
+                    </ul>
+                    <p><i class="fa-solid fa-phone"></i> 1900 29 29 17</p>
+                    <p><i class="fa-solid fa-envelope"></i> tinhlamjw@gmail.com</p>
+                </div>
+
+                <!-- Form liên hệ bên phải -->
+                <div class="col-right">
+                    <form class="contact-form">
+                        <div class="input-group">
+                            <input type="text" placeholder="Name" />
+                            <input type="email" placeholder="Email" />
+                        </div>
+                        <textarea rows="6" placeholder="Message"></textarea>
+                        <button type="submit">SEND MESSAGE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- Logo và thông tin công ty -->
+                <div class="col-md-4">
+                    <img src="../img/LOGO2.jpg" alt="Tịnh Lâm" class="footer-logo">
+                    <p>© 2021 Bản quyền thuộc Công Ty TNHH Phong Thủy Tịnh Lâm</p>
+                    <p>Giấy chứng nhận đăng ký doanh nghiệp: 0316645318</p>
+                    <p>Địa chỉ: 280 E10 Lương Định Của, P. An Phú, Q. 2, TP. Hồ Chí Minh</p>
+                    <p>ĐT: 028 77799917</p>
+                </div>
+
+                <!-- Danh sách showroom -->
+                <div class="col-md-4">
+                    <h4>Showroom</h4>
+                    <p><i class="fa fa-map-marker" aria-hidden="true"></i> 280 E10 Lương Định Của, P. An Phú, Q.2, TP HCM</p>
+                    <p><i class="fa fa-map-marker marker-icon" aria-hidden="true"></i> 61C Phan Đình Phùng, P.17, Q.Phú Nhuận, TP HCM</p>
+                    <p><i class="fa fa-map-marker marker-icon" aria-hidden="true"></i> Tầng 2, chung cư 42 Nguyễn Huệ, P. Bến Nghé, Q.1, TP HCM</p>
+                    <p><i class="fa fa-map-marker marker-icon" aria-hidden="true"></i> 91 Xuân Thủy, P. Thảo Điền, Q.2, TP HCM</p>
+                    <p><i class="fa fa-map-marker marker-icon" aria-hidden="true"></i> 47 Hai Bà Trưng, P. Mỹ Long, TP. Long Xuyên, Tỉnh An Giang</p>
+                </div>
+
+                <!-- Danh mục sản phẩm và hỗ trợ -->
+                <div class="col-md-2">
+                    <h4>SẢN PHẨM</h4>
+                    <ul>
+                        <li><a href="#">Vòng Đá Phong Thủy</a></li>
+                        <li><a href="#">Vòng Đá Thời Trang</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-2">
+                    <h4>HỖ TRỢ</h4>
+                    <ul>
+                        <li><a href="#">Hướng dẫn mua hàng</a></li>
+                        <li><a href="#">Chính sách bán hàng</a></li>
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Giao nhận & Thanh toán</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

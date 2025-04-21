@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/javascript.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome 6 CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <title>About us</title>
+    <style>
+        /* Phần nội dung chính */
+        
+        section.container {
+            /* màu nền nhẹ */
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        /* Tiêu đề cột */
+        
+        section.container h5 {
+            font-size: 1.25rem;
+            color: #5c3a1a;
+            /* tông nâu trầm */
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        /* Nội dung đoạn văn */
+        
+        section.container p {
+            font-size: 1rem;
+            color: #333;
+            line-height: 1.75;
+            text-align: justify;
+        }
+        /* Border giữa các cột */
+        
+        @media (min-width: 768px) {
+            .col-md-4:not(:last-child) {
+                border-right: 1px solid #e0d6c6;
+                padding-right: 20px;
+            }
+            .col-md-4:not(:first-child) {
+                padding-left: 20px;
+            }
+        }
+        
+        .footer .col-md-4,
+        .footer .col-md-2 {
+            border-right: none;
+        }
+        
+        .testimonial-section {
+            background-color: #f8f5f0;
+        }
+        
+        .testimonial-content blockquote {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.7;
+            width: 405px;
+        }
+        
+        .testimonial-content .quote-icon i {
+            font-size: 2rem;
+            color: #e74c3c;
+        }
+        
+        .about-section {
+            background-color: #fff;
+        }
+        
+        .about-section h6 {
+            letter-spacing: 1px;
+        }
+        
+        .object-fit-cover {
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Loader -->
+    <div class="loader-wrapper">
+        <div class="loading-wave">
+            <div class="loading-bar"></div>
+            <div class="loading-bar"></div>
+            <div class="loading-bar"></div>
+            <div class="loading-bar"></div>
+        </div>
+    </div>
+    <!-- Header -->
+    <header class="header-container text-dark py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="header-logo font-weight-bold"><img src="../img/LOGO4.png" alt="" class="logo"></div>
+            <nav class="header-nav">
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link text-light" href="../html/index .html">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="../html/intro.html">Giới thiệu</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="#" onclick="scrollToSection('productions')">Sản phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="../html/news.html">Bài viết</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="../html/contact.html">Liên hệ</a></li>
+                </ul>
+            </nav>
+            <div class="header-search" id="main">
+                <input type="text" class="form-control d-inline w-75" placeholder="Tìm kiếm...">
+                <button class="btn">
+                <i class="fas fa-search"></i>
+            </button>
+            </div>
+            <!-- Button -->
+            <a href="../html/login.html" class="login">
+                <div class="sign">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                </div>
+                <div class="text"> Login</div>
+            </a>
+        </div>
+    </header>
+
+    <section class="container py-5">
+        <div class="text-center mb-5" style="margin-top: 50px;">
+            <img src="../img/about-us-1.jpg" alt="Tịnh Lâm Logo hoặc hình ảnh chính" class="img-fluid" style="max-width: 100%; height: auto; border-radius: 12px;">
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Về chúng tôi?</h5>
+                <p>
+                    Tinh Lâm là đứa con tinh thần mà Huỳnh Lập tâm huyết nhất . Sở dĩ việc đặt tên thương hiệu là Tinh Lâm bởi vì đây vốn là một nhân vật rất đỗi quen thuộc với những ai mà là fan của Huỳnh Lập trong các tác phẩm như “ Pháp Sư Mù “ , “ Ai chết giơ tay “.
+                    Đã có nhiều người khi theo dõi các series này quan tâm đến những phụ kiện đi kèm của nhân vật Tinh Lâm , và vì thế Tinh Lâm – Trang Sức Phong Thủy ra đời.
+                </p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Chúng tôi làm gì?</h5>
+                <p>
+                    Thiên nhiên luôn ẩn chứa vô vàn điều bí ẩn , vẻ đẹp lung linh , huyền ảo. Từ sự hòa hợp của 5 yếu tố ngũ hành trong vũ trụ: Vĩnh cửu như Kim, sắc sảo như Mộc, long lanh như Thuỷ, mê hoặc như Hoả, huyền bí như Thổ. Đúng như cái tên chúng tôi chọn, đó là
+                    tập trung hết mình vào Trang Sức Phong Thủy. Mang đến những giá trị cốt lõi , tinh thần giúp mọi người tự tin hơn trong công việc, cuộc sống . Không những mang đến cho mọi người vẻ đẹp bên ngoài mà còn mang tới những yếu tố ngũ hành
+                    phù hợp với từng cá nhân để giúp cho con đường phát triển của cá nhân đó thăng hoa hơn.
+                </p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Tại sao nên chọn?</h5>
+                <p>
+                    Một thương hiệu thành công được xây dựng bởi lòng tin và sự hài lòng của khách hàng. Tinh Lâm được ra đời bởi điều đó : sự chân thành , lòng tin và hơn hết nữa chúng tôi dành rất nhiều thời gian , tìm hiểu để mang đến những sản phẩm chất lượng nhất đến
+                    người tiêu dùng.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonial-section">
+        <div class="container-fluid px-0">
+            <div class="row g-0" style="background-color: #f3f2ee;">
+                <!-- Phần testimonial bên trái -->
+                <div class="col-md-6 d-flex align-items-center justify-content-center bg-light p-5">
+                    <div class="testimonial-content text-center">
+                        <div class="quote-icon mb-3">
+                            <i class="fas fa-quote-left text-danger fs-2"></i>
+                        </div>
+                        <blockquote class="blockquote fst-italic">
+                            “Một thương hiệu thành công được xây dựng bởi lòng tin và sự hài lòng của khách hàng. Tịnh Lâm được ra đời bởi điều đó: sự chân thành, lòng tin và hơn hết nữa chúng tôi dành rất nhiều thời gian, tìm hiểu để mang đến những sản phẩm chất lượng nhất đến
+                            người tiêu dùng.”
+                        </blockquote>
+                        <div class="author d-flex align-items-center justify-content-center mt-4">
+                            <img src="../img/author-1.png" alt="Huỳnh Lập" class="rounded-circle me-3" width="50" height="50">
+                            <div class="text-start" style="margin-left: 30px">
+                                <strong>Huỳnh Lập</strong><br>
+                                <small class="text-muted fst-italic">TinhLam JW</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hình ảnh bên phải -->
+                <div class="col-md-6">
+                    <img src="../img/about-us-2.png" alt="Showroom" class="object-fit-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Về Chúng Tôi -->
+    <section class="about-section py-5 text-center">
+        <div class="container">
+            <h6 class="text-uppercase text-danger">Tịnh Lâm</h6>
+            <h2 class="fw-bold mb-4">Về Chúng Tôi</h2>
+            <p class="mx-auto" style="max-width: 1150px;">
+                Tinh Lâm là đứa con tinh thần mà Huỳnh Lập tâm huyết nhất . Sở dĩ việc đặt tên thương hiệu là Tinh Lâm bởi vì đây vốn là một nhân vật rất đỗi quen thuộc với những ai mà là fan của Huỳnh Lập trong các tác phẩm như “ Pháp Sư Mù “ , “ Ai chết giơ tay “.
+                Đã có nhiều người khi theo dõi các series này quan tâm đến những phụ kiện đi kèm của nhân vật Tinh Lâm , và vì thế Tinh Lâm – Trang Sức Phong Thủy ra đời.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- Logo và thông tin công ty -->
+                <div class="col-md-4">
+                    <img src="../img/LOGO2.jpg" alt="Tịnh Lâm" class="footer-logo">
+                    <p>© 2021 Bản quyền thuộc Công Ty TNHH Phong Thủy Tịnh Lâm</p>
+                    <p>Giấy chứng nhận đăng ký doanh nghiệp: 0316645318</p>
+                    <p>Địa chỉ: 280 E10 Lương Định Của, P. An Phú, Q. 2, TP. Hồ Chí Minh</p>
+                    <p>ĐT: 028 77799917</p>
+                </div>
+
+                <!-- Danh sách showroom -->
+                <div class="col-md-4">
+                    <h4>Showroom</h4>
+                    <p><i class="fa fa-map-marker" aria-hidden="true"></i> 280 E10 Lương Định Của, P. An Phú, Q.2, TP HCM</p>
+                    <p><i class="fa fa-map-marker marker-icon" aria-hidden="true"></i> 61C Phan Đình Phùng, P.17, Q.Phú Nhuận, TP HCM</p>
+                    <p><i class="fa fa-map-marker marker-icon" aria-hidden="true"></i> Tầng 2, chung cư 42 Nguyễn Huệ, P. Bến Nghé, Q.1, TP HCM</p>
+                    <p><i class="fa fa-map-marker marker-icon" aria-hidden="true"></i> 91 Xuân Thủy, P. Thảo Điền, Q.2, TP HCM</p>
+                    <p><i class="fa fa-map-marker marker-icon" aria-hidden="true"></i> 47 Hai Bà Trưng, P. Mỹ Long, TP. Long Xuyên, Tỉnh An Giang</p>
+                </div>
+
+                <!-- Danh mục sản phẩm và hỗ trợ -->
+                <div class="col-md-2">
+                    <h4>SẢN PHẨM</h4>
+                    <ul>
+                        <li><a href="#">Vòng Đá Phong Thủy</a></li>
+                        <li><a href="#">Vòng Đá Thời Trang</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-2">
+                    <h4>HỖ TRỢ</h4>
+                    <ul>
+                        <li><a href="#">Hướng dẫn mua hàng</a></li>
+                        <li><a href="#">Chính sách bán hàng</a></li>
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Giao nhận & Thanh toán</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

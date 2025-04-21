@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/javascript.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome 6 CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <title>Trang Sức Phong Thủy</title>
+    <script>
+        document.querySelector('.shopping-cart-btn').addEventListener('click', function() {
+            document.querySelector('.inner-cart').classList.toggle('show');
+        });
+
+        function addToCart(name, price, quantity) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Kiểm tra nếu sản phẩm đã tồn tại thì tăng số lượng
+            const index = cart.findIndex(item => item.name === name);
+            if (index !== -1) {
+                cart[index].quantity += quantity;
+            } else {
+                cart.push({
+                    name,
+                    price,
+                    quantity
+                });
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+        document.addEventListener("DOMContentLoaded", function() {
+            const links = document.querySelectorAll(".header-nav .nav-link");
+
+            links.forEach(link => {
+                link.addEventListener("click", function(e) {
+                    e.preventDefault(); // 🛑 chặn href="#" nhảy trang
+                    links.forEach(l => l.classList.remove("active"));
+                    this.classList.add("active");
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <!-- Loader -->
+    <div class="loader-wrapper">
+        <div class="loading-wave">
+            <div class="loading-bar"></div>
+            <div class="loading-bar"></div>
+            <div class="loading-bar"></div>
+            <div class="loading-bar"></div>
+        </div>
+    </div>
+    <!-- Header -->
+    <header class="header-container text-dark py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="header-logo font-weight-bold"><img src="../img/LOGO4.png" alt="" class="logo"></div>
+            <nav class="header-nav">
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link text-light" href="#" onclick="scrollToSection('main')">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="../html/intro.html">Giới thiệu</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="#" onclick="scrollToSection('productions')">Sản phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="../html/news.html">Bài viết</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="../html/contact.html">Liên hệ</a></li>
+                </ul>
+            </nav>
+            <div class="header-search" id="main">
+                <input type="text" class="form-control d-inline w-75" placeholder="Tìm kiếm...">
+                <button class="btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <!-- Button -->
+            <a href="../html/login.html" class="login">
+                <div class="sign">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                </div>
+                <div class="text"> Login</div>
+            </a>
+        </div>
+    </header>
+
+    <!-- Banner Slider -->
+    <div id="bannerCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../img/WEB-BANNER-2.jpg" class="d-block w-100" alt="Sản phẩm 1">
+            </div>
+            <div class="carousel-item">
+                <img src="../img/WEB-BANNER-1.png" class="d-block w-100" alt="Sản phẩm 2">
+            </div>
+            <div class="carousel-item">
+                <img src="../img/WEB-BANNER-3.png" class="d-block w-100" alt="Sản phẩm 3">
+            </div>
+            <div class="carousel-item">
+                <img src="../img/WEB-BANNER-4.png" class="d-block w-100" alt="Sản phẩm 4">
+            </div>
+        </div>
+
+        <ol class="carousel-indicators">
+            <li data-target="#bannerCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#bannerCarousel" data-slide-to="1"></li>
+            <li data-target="#bannerCarousel" data-slide-to="2"></li>
+            <li data-target="#bannerCarousel" data-slide-to="3"></li>
+        </ol>
+    </div>
+
+    <!-- Sản phẩm nổi bật -->
+    <section class="container my-5">
+        <h2 class="text-center mb-4">Vòng Đá Phong Thủy</h2>
+
+        <!-- Bọc toàn bộ trong .carousel -->
+        <div id="productCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+
+                <!-- Slide 1: chứa 4 ảnh đầu tiên -->
+                <div class="carousel-item active img-slider">
+                    <!-- 👈 thêm class "carousel-item active" -->
+                    <div class="d-flex justify-content-center align-items-center flex-wrap position-relative">
+                        <a href="#"><img src="../img/item1.jpg" class="img-fluid mx-2" alt="Vòng tay 1"></a>
+                        <a href="#"><img src="../img/item2.jpg" class="img-fluid mx-2" alt="Vòng tay 2"></a>
+                        <a href="#"><img src="../img/item3.jpg" class="img-fluid mx-2" alt="Vòng tay 3"></a>
+                        <a href="#"><img src="../img/item4.jpg" class="img-fluid mx-2" alt="Vòng tay 4"></a>
+                    </div>
+                </div>
+
+                <!-- Slide 2: thêm nếu có ảnh khác -->
+
+                <div class="carousel-item img-slider">
+                    <div class="d-flex justify-content-center align-items-center flex-wrap position-relative">
+                        <a href="#"><img src="../img/item5.jpg" class="img-fluid mx-2" alt="Vòng tay 5"></a>
+                        <a href="#"><img src="../img/item2.jpg" class="img-fluid mx-2" alt="Vòng tay 6"></a>
+                        <a href="#"><img src="../img/item3.jpg" class="img-fluid mx-2" alt="Vòng tay 7"></a>
+                        <a href="#"><img src="../img/item4.jpg" class="img-fluid mx-2" alt="Vòng tay 8"></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 👇 Nút điều hướng để chuyển slide -->
+            <a class="carousel-control-prev custom-nav" href="#productCarousel" role="button" data-slide="prev">
+                <i class="fa-solid fa-chevron-left"></i>
+            </a>
+
+            <a class="carousel-control-next custom-nav" href="#productCarousel" role="button" data-slide="next">
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
+        </div>
+    </section>
+
+
+    <!-- Production -->
+
+    <div class="products" id="productions">
+        <div class="products-container">
+            <div class="products-header">
+                <h2 class="text-center my-4">Bán chạy nhất</h2>
+                <h2 class="text-center my-4">Mới nhất</h2>
+                <h2 class="text-center my-4">Đặc biệt</h2>
+            </div>
+            <!-- Best Saler -->
+            <div class="product-list active">
+                <div class="row justify-content-center">
+                    <div class="col-md-3">
+                        <div class="product-card" data-title="VÒNG GARNET LỰU ĐỎ" data-type="Vòng tay" data-desc="Đá tự nhiên giúp thu hút tình duyên" data-details="Đá garnet tự nhiên, dây đàn hồi" data-oldprice="5,000,000 VND" data-newprice="4,010,000 VND" data-image="../img/product1.png">
+                            <span class="new-badge">NEW</span>
+                            <img src="../img/product1.png" alt="VÒNG GARNET LỰU ĐỎ">
+                            <p class="product-title">VÒNG GARNET LỰU ĐỎ</p>
+                            <p class="product-price">4,010,000 VND</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="product-card" data-title="VÒNG CẨM THẠCH XANH" data-type="Vòng tay" data-desc="Đá tự nhiên giúp thu hút tình duyên" data-details="Đá garnet tự nhiên, dây đàn hồi" data-oldprice="5,000,000 VND" data-newprice="2,245,000 VND" data-image="../img/product2.png">
+                            <span class="new-badge">NEW</span>
+                            <img src="../img/product2.png" alt="VÒNG CẨM THẠCH XANH">
+                            <p class="product-title">VÒNG CẨM THẠCH XANH</p>
+                            <p class="product-price">2,245,000 VND</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="product-card" data-title="VÒNG APATITE BIỂN XANH" data-type="Vòng tay" data-desc="Đá tự nhiên giúp thu hút tình duyên" data-details="Đá garnet tự nhiên, dây đàn hồi" data-oldprice="5,000,000 VND" data-newprice="2,740,000 VND" data-image="../img/product3.png">
+                            <span class="new-badge">NEW</span>
+                            <img src="../img/product3.png" alt="VÒNG APATITE BIỂN XANH">
+                            <p class="product-title">VÒNG APATITE BIỂN XANH</p>
+                            <p class="product-price">2,740,000 VND</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="product-card" data-title="VÒNG MOONSTONE" data-type="Vòng tay" data-desc="Đá tự nhiên giúp thu hút tình duyên" data-details="Đá garnet tự nhiên, dây đàn hồi" data-oldprice="5,000,000 VND" data-newprice="1,682,000 VND" data-image="../img/product4.png">
+                            <span class="new-badge">NEW</span>
+                            <img src="../img/product4.png" alt="VÒNG MOONSTONE">
+                            <p class="product-title">VÒNG MOONSTONE</p>
+                            <p class="product-price">1,682,000 VND</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="product-card" data-title="VÒNG MẮT HỔ VÀNG NÂU - PHỐI ƯU LINH" data-type="Vòng tay" data-desc="Đá tự nhiên giúp thu hút tình duyên" data-details="Đá garnet tự nhiên, dây đàn hồi" data-oldprice="5,000,000 VND" data-newprice="1,682,000 VND"
+                            data-image="../img/product5.png">
+                            <span class="new-badge">NEW</span>
+                            <img src="../img/product5.png" alt="VÒNG MẮT HỔ VÀNG NÂU - PHỐI ƯU LINH">
+                            <p class="product-title">VÒNG MẮT HỔ VÀNG NÂU - PHỐI ƯU LINH</p>
+                            <p class="product-price">1,682,000 VND</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="product-card" data-title="VÒNG MẮT HỔ ĐỎ - PHỐI DIOPSIDE" data-type="Vòng tay" data-desc="Đá tự nhiên giúp thu hút tình duyên" data-details="Đá garnet tự nhiên, dây đàn hồi" data-oldprice="5,000,000 VND" data-newprice="1,682,000 VND" data-image="../img/product6.png">
+                            <span class="new-badge">NEW</span>
+                            <img src="../img/product6.png" alt="VÒNG MẮT HỔ ĐỎ - PHỐI DIOPSIDE">
+                            <p class="product-title">VÒNG MẮT HỔ ĐỎ - PHỐI DIOPSIDE</p>
+                            <p class="product-price">1,682,000 VND</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="product-card" data-title="VÒNG MOONSTONE PHỐI HEMATITE" data-type="Vòng tay" data-desc="Đá tự nhiên giúp thu hút tình duyên" data-details="Đá garnet tự nhiên, dây đàn hồi" data-oldprice="5,000,000 VND" data-newprice="1,682,000 VND" data-image="../img/product7.png">
+                            <span class="new-badge">NEW</span>
+                            <img src="../img/product7.png" alt="VÒNG MOONSTONE PHỐI HEMATITE">
+                            <p class="product-title">VÒNG MOONSTONE PHỐI HEMATITE</p>
+                            <p class="product-price">1,682,000 VND</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="product-card" data-title="VÒNG MẮT DIỀU HÂU - PHỐI MOONSTONE" data-type="Vòng tay" data-desc="Đá tự nhiên giúp thu hút tình duyên" data-details="Đá garnet tự nhiên, dây đàn hồi" data-oldprice="5,000,000 VND" data-newprice="1,682,000 VND" data-image="../img/product8.png">
+                            <span class="new-badge">NEW</span>
+                            <img src="../img/product8.png" alt="VÒNG MẮT DIỀU HÂU - PHỐI MOONSTONE">
+                            <p class="product-title">VÒNG MẮT DIỀU HÂU - PHỐI MOONSTONE</p>
+                            <p class="product-price">1,682,000 VND</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- New -->
+            <div class="product-list active">
+                <div class="row justify-content-center">
+                    <div class="col-md-3">
+                        <div class="product-card" data-title="VÒNG ĐÁ MẮT HỔ ĐỎ (CHARM VUÔNG)" data-type="Vòng tay" data-desc="Đá tự nhiên giúp thu hút tình duyên" data-details="Đá garnet tự nhiên, dây đàn hồi" data-oldprice="5,000,000 VND" data-newprice="1,240,000 VND" data-image="../img/sale1.jpg">
+                            <span class="new-badge">NEW</span>
+                            <img src="../img/sale1.jpg" alt="VÒNG ĐÁ MẮT HỔ ĐỎ (CHARM VUÔNG)">
+                            <p class="product-title">VÒNG ĐÁ MẮT HỔ ĐỎ (CHARM VUÔNG)</p>
+                            <p class="product-price">1,240,000 VND</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="product-card" data-title="VÒNG ĐÁ MẮT HỔ ĐỎ (CHARM TRÒN)" data-type="Vòng tay" data-desc="Đá tự nhiên giúp thu hút tình duyên" data-details="Đá garnet tự nhiên, dây đàn hồi" data-oldprice="5,000,000 VND" data-newprice="1,040,000 VND" data-image="../img/sale2.png">
+                            <span class="new-badge">NEW</span>
+                            <img src="../img/sale2.png" alt="VÒNG ĐÁ MẮT HỔ ĐỎ (CHARM TRÒN)">
+                            <p class="product-title">VÒNG ĐÁ MẮT HỔ ĐỎ (CHARM TRÒN)</p>
+                            <p class="product-price">1,040,000 VND</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="product-card" data-title="VÒNG GỖ HÓA THẠCH" data-type="Vòng tay" data-desc="Đá tự nhiên giúp thu hút tình duyên" data-details="Đá garnet tự nhiên, dây đàn hồi" data-oldprice="5,000,000 VND" data-newprice="1,130,000 VND" data-image="../img/sale3.jpg">
+                            <span class="new-badge">NEW</span>
+                            <img src="../img/sale3.jpg" alt="VÒNG GỖ HÓA THẠCH">
+                            <p class="product-title">VÒNG GỖ HÓA THẠCH</p>
+                            <p class="product-price">1,130,000 VND</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="product-card" data-title="VÒNG MẮT HỔ VÀNG NÂU" data-type="Vòng tay" data-desc="Đá tự nhiên giúp thu hút tình duyên" data-details="Đá garnet tự nhiên, dây đàn hồi" data-oldprice="5,000,000 VND" data-newprice="1,240,000 VND" data-image="../img/sale4.jpg">
+                            <span class="new-badge">NEW</span>
+                            <img src="../img/sale4.jpg" alt="VÒNG MẮT HỔ VÀNG NÂU">
+                            <p class="product-title">VÒNG MẮT HỔ VÀNG NÂU</p>
+                            <p class="product-price">1,240,000 VND</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="product-card" data-title="VÒNG ĐÁ THẠCH ANH TRẮNG TRONG" data-type="Vòng tay" data-desc="Đá tự nhiên giúp thu hút tình duyên" data-details="Đá garnet tự nhiên, dây đàn hồi" data-oldprice="5,000,000 VND" data-newprice="1,080,000 VND" data-image="../img/sale5.jpg">
+                            <span class="new-badge">NEW</span>
+                            <img src="../img/sale5.jpg" alt="VÒNG ĐÁ THẠCH ANH TRẮNG TRONG">
+                            <p class="product-title">VÒNG ĐÁ THẠCH ANH TRẮNG TRONG</p>
+                            <p class="product-price">1,080,000 VND</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="product-card" data-title="VÒNG THẠCH ANH KHÓI" data-type="Vòng tay" data-desc="Đá tự nhiên giúp thu hút tình duyên" data-details="Đá garnet tự nhiên, dây đàn hồi" data-oldprice="5,000,000 VND" data-newprice="1,682,000 VND" data-image="../img/sale6.jpg">
+                            <span class="new-badge">NEW</span>
+                            <img src="../img/sale6.jpg" alt="VÒNG THẠCH ANH KHÓI">
+                            <p class="product-title">VÒNG THẠCH ANH KHÓI</p>
+                            <p class="product-price">1,682,000 VND</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="product-card" data-title="VÒNG THẠCH ANH HỒNG 3A" data-type="Vòng tay" data-desc="Đá tự nhiên giúp thu hút tình duyên" data-details="Đá garnet tự nhiên, dây đàn hồi" data-oldprice="5,000,000 VND" data-newprice="1,795,000 VND" data-image="../img/sale7.jpg">
+                            <span class="new-badge">NEW</span>
+                            <img src="../img/sale7.jpg" alt="VÒNG THẠCH ANH HỒNG 3A">
+                            <p class="product-title">VÒNG THẠCH ANH HỒNG 3A</p>
+                            <p class="product-price">1,795,000 VND</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="product-card" data-title="VÒNG ĐÁ MÃ NÃO" data-type="Vòng tay" data-desc="Đá tự nhiên giúp thu hút tình duyên" data-details="Đá garnet tự nhiên, dây đàn hồi" data-oldprice="5,000,000 VND" data-newprice="1,145,000 VND" data-image="../img/sale8.jpg">
+                            <span class="new-badge">NEW</span>
+                            <img src="../img/sale8.jpg" alt="VÒNG ĐÁ MÃ NÃO">
+                            <p class="product-title">VÒNG ĐÁ MÃ NÃO</p>
+                            <p class="product-price">1,145,000 VND</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Special -->
+            <div class="product-list active">
+                <div class="row justify-content-center">
+                    <div class="col-md-3">
+                        <div class="product-card" data-title="VÒNG ĐÁ THẠCH ANH HỒNG 3A" data-type="Vòng tay" data-desc="Đá tự nhiên giúp thu hút tình duyên" data-details="Đá garnet tự nhiên, dây đàn hồi" data-oldprice="5,000,000 VND" data-newprice="1,795,000 VND" data-image="../img/special1.1.jpg">
+                            <span class="new-badge">NEW</span>
+                            <img src="../img/special1.1.jpg" alt="VÒNG ĐÁ THẠCH ANH HỒNG 3A">
+                            <p class="product-title">VÒNG ĐÁ THẠCH ANH HỒNG 3A</p>
+                            <p class="product-price">1,795,000 VND</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="product-card" data-title="VÒNG GỖ HÓA THẠCH" data-type="Vòng tay" data-desc="Đá tự nhiên giúp thu hút tình duyên" data-details="Đá garnet tự nhiên, dây đàn hồi" data-oldprice="5,000,000 VND" data-newprice="1,245,000 VND" data-image="../img/special2.jpg">
+                            <span class="new-badge">NEW</span>
+                            <img src="../img/special2.jpg" alt="VÒNG GỖ HÓA THẠCH">
+                            <p class="product-title">VÒNG GỖ HÓA THẠCH</p>
+                            <p class="product-price">1,245,000 VND</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="product-card" data-title="VÒNG AQUAMARINE" data-type="Vòng tay" data-desc="Đá tự nhiên giúp thu hút tình duyên" data-details="Đá garnet tự nhiên, dây đàn hồi" data-oldprice="5,000,000 VND" data-newprice="2,650,000 VND" data-image="../img/special3.jpg">
+                            <span class="new-badge">NEW</span>
+                            <img src="../img/special3.jpg" alt="VÒNG AQUAMARINE">
+                            <p class="product-title">VÒNG AQUAMARINE</p>
+                            <p class="product-price">2,650,000 VND</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="product-card" data-title="VÒNG THẠCH ANH VÀNG" data-type="Vòng tay" data-desc="Đá tự nhiên giúp thu hút tình duyên" data-details="Đá garnet tự nhiên, dây đàn hồi" data-oldprice="5,000,000 VND" data-newprice="2,510,000 VND" data-image="../img/special4.jpg">
+                            <span class="new-badge">NEW</span>
+                            <img src="../img/special4.jpg" alt="VÒNG THẠCH ANH VÀNG">
+                            <p class="product-title">VÒNG THẠCH ANH VÀNG</p>
+                            <p class="product-price">2,510,000 VND</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="product-card" data-title="VÒNG AQUAMARINE" data-type="Vòng tay" data-desc="Đá tự nhiên giúp thu hút tình duyên" data-details="Đá garnet tự nhiên, dây đàn hồi" data-oldprice="5,000,000 VND" data-newprice="2,650,000 VND" data-image="../img/special5.jpg">
+                            <span class="new-badge">NEW</span>
+                            <img src="../img/special5.jpg" alt="VÒNG AQUAMARINE">
+                            <p class="product-title">VÒNG AQUAMARINE</p>
+                            <p class="product-price">2,650,000 VND</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="product-card" data-title="VÒNG THẠCH ANH DÂU TÂY XANH" data-type="Vòng tay" data-desc="Đá tự nhiên giúp thu hút tình duyên" data-details="Đá garnet tự nhiên, dây đàn hồi" data-oldprice="5,000,000 VND" data-newprice="1,760,000 VND" data-image="../img/PNVN0016.jpg">
+                            <span class="new-badge">NEW</span>
+                            <img src="../img/PNVN0016.jpg" alt="VÒNG THẠCH ANH DÂU TÂY XANH">
+                            <p class="product-title">VÒNG THẠCH ANH DÂU TÂY XANH</p>
+                            <p class="product-price">1,760,000 VND</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="product-card" data-title="VÒNG MẮT HỔ TAM TÀI" data-type="Vòng tay" data-desc="Đá tự nhiên giúp thu hút tình duyên" data-details="Đá garnet tự nhiên, dây đàn hồi" data-oldprice="5,000,000 VND" data-newprice="1,670,000 VND" data-image="../img/special7.jpg">
+                            <span class="new-badge">NEW</span>
+                            <img src="../img/special7.jpg" alt="VÒNG MẮT HỔ TAM TÀI">
+                            <p class="product-title">VÒNG MẮT HỔ TAM TÀI</p>
+                            <p class="product-price">1,670,000 VND</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="product-card" data-title="VÒNG THẠCH ANH TÓC VÀNG 4A" data-type="Vòng tay" data-desc="Đá tự nhiên giúp thu hút tình duyên" data-details="Đá garnet tự nhiên, dây đàn hồi" data-oldprice="5,000,000 VND" data-newprice="4,055,000 VND" data-image="../img/special8.jpg">
+                            <span class="new-badge">NEW</span>
+                            <img src="../img/special8.jpg" alt="VÒNG THẠCH ANH TÓC VÀNG 4A">
+                            <p class="product-title">VÒNG THẠCH ANH TÓC VÀNG 4A</p>
+                            <p class="product-price">4,055,000 VND</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Production -->
+    <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productTitle"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img id="productImage" src="" class="img-fluid" alt="Product Image">
+                    <div class="modal-body-content mt-3">
+                        <p><strong>Loại sản phẩm:</strong> <span id="productType"></span></p>
+                        <p><strong>Mô tả:</strong> <span id="productDesc"></span></p>
+                        <p><strong>Chi tiết sản phẩm:</strong> <span id="productDetails"></span></p>
+                        <p><del id="productOldPrice"></del></p>
+                        <p><strong class="text-danger">Giá khuyến mãi:</strong> <span id="productNewPrice"></span></p>
+                        <div class="d-flex">
+                            <button class="btn btn-outline-secondary" id="decreaseQty">-</button>
+                            <input type="text" id="quantity" value="1" class="form-control text-center mx-2" style="width: 50px;">
+                            <button class="btn btn-outline-secondary" id="increaseQty">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Thêm vào giỏ hàng</button>
+                    <button type="button" class="btn btn-warning">Mua ngay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Collection -->
+
+    <section class="collection">
+        <div class="collection__left">
+            <h2 class="collection__title">Bộ Sưu Tập <br> <span class="collection__title-name text-hottroof">Kim Long</span><br> <span class="collection__title-name text-hottroof">Phát Lộc</span></h2>
+        </div>
+        <div class="collection__right">
+            <img src="../img/signature.png" alt="Kim Long Phát Lộc" class="collection__image">
+            <div class="collection__info">
+                <h3 class="collection__subtitle">Sản phẩm phong thủy</h3>
+                <h2 class="collection__heading text-hottroof">Kim Long Phát Lộc</h2>
+                <p class="collection__description">
+                    Trang Sức Phong Thủy Tinh Lâm cho ra mắt BST mang tên KIM LONG PHÁT LỘC nhân dịp năm mới với mong muốn mang đến sự may mắn, năng lượng tích cực, nhằm thúc đẩy niềm tin cá nhân, từ đó giúp người đeo có thêm động lực, sự tự tin, bản lĩnh để tiến đến thành
+                    công trên con đường phát triển công danh, tích lũy nhiều tài lộc và khẳng định quyền lực cá nhân... cho một năm Thìn Thịnh Vượng
+                </p>
+                <a href="#" class="collection__button">MUA NGAY</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ngũ Hành -->
+    <div class="nguhanh">
+        <div class="nguhanh__gallery">
+            <div class="nguhanh__item" style="background-image: url('https://tinhlamjw.com/wp-content/uploads/2020/09/product-1-2.jpg');"></div>
+            <div class="nguhanh__item" style="background-image: url('https://tinhlamjw.com/wp-content/uploads/2020/09/product-2-2.jpg');"></div>
+            <div class="nguhanh__item" style="background-image: url('https://tinhlamjw.com/wp-content/uploads/2020/09/product-3-2.jpg');"></div>
+            <div class="nguhanh__item" style="background-image: url('https://tinhlamjw.com/wp-content/uploads/2020/09/product-4-2.jpg');"></div>
+            <div class="nguhanh__item" style="background-image: url('https://tinhlamjw.com/wp-content/uploads/2020/09/product-5-1.jpg');"></div>
+            <div class="nguhanh__item" style="background-image: url('https://tinhlamjw.com/wp-content/uploads/2020/09/product-6-1.jpg');"></div>
+        </div>
+        <div class="nguhanh__content">
+            <h2 class="nguhanh__title text-hottroof">Ngũ hành</h2>
+            <p class="nguhanh__description">
+                Vòng đá phong thủy theo ngũ hành (Kim, Thủy, Mộc, Hỏa, Thổ) là những chiếc vòng được làm từ chính những viên đá có sẵn trong tự nhiên, với những màu sắc khác nhau và được chế tác vô cùng kỳ công. Ngoài ra, nó còn được xem là những vật phẩm có khả năng
+                đem lại những may mắn cho con người. Mang đến tài lộc, thịnh vượng, phù trợ cho con người trong công việc cũng như cuộc sống. Đặc biệt là những người kinh doanh, buôn bán sẽ giúp bạn thuận lợi hơn trong con đường công danh sự nghiệp.
+            </p>
+        </div>
+    </div>
+    <!-- Giỏ hàng -->
+    <div class="dropleft cart show">
+        <button type="button" class="btn shopping-cart-btn border-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa-solid fa-cart-shopping"></i>
+          <span class="num-item-in-cart rounded-circle" id="cartCount">0</span>
+        </button>
+        <div class="dropdown-menu rounded inner-cart">
+            <div id="cartItemsContainer">
+                <div class="dropdown-item figure text-center rounded-0 p-3 mx-auto empty-cart">
+                    <img src="../img/cart.png" height="100" alt="">
+                    <div class="figure-caption text-bg text-big">Chưa chọn sản phẩm nào</div>
+                </div>
+            </div>
+            <div id="cartItemsContainer"></div>
+            <a href="../html/pay.html">
+                <button class="btn w-100 text-md mx-auto mt-3 pay-btn pay">Thanh toán</button>
+            </a>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- Logo và thông tin công ty -->
+                <div class="col-md-4">
+                    <img src="../img/LOGO2.jpg" alt="Tịnh Lâm" class="footer-logo">
+                    <p>© 2021 Bản quyền thuộc Công Ty TNHH Phong Thủy Tịnh Lâm</p>
+                    <p>Giấy chứng nhận đăng ký doanh nghiệp: 0316645318</p>
+                    <p>Địa chỉ: 280 E10 Lương Định Của, P. An Phú, Q. 2, TP. Hồ Chí Minh</p>
+                    <p>ĐT: 028 77799917</p>
+                </div>
+
+                <!-- Danh sách showroom -->
+                <div class="col-md-4">
+                    <h4>Showroom</h4>
+                    <p><i class="fa fa-map-marker" aria-hidden="true"></i> 280 E10 Lương Định Của, P. An Phú, Q.2, TP HCM</p>
+                    <p><i class="fa fa-map-marker marker-icon" aria-hidden="true"></i> 61C Phan Đình Phùng, P.17, Q.Phú Nhuận, TP HCM</p>
+                    <p><i class="fa fa-map-marker marker-icon" aria-hidden="true"></i> Tầng 2, chung cư 42 Nguyễn Huệ, P. Bến Nghé, Q.1, TP HCM</p>
+                    <p><i class="fa fa-map-marker marker-icon" aria-hidden="true"></i> 91 Xuân Thủy, P. Thảo Điền, Q.2, TP HCM</p>
+                    <p><i class="fa fa-map-marker marker-icon" aria-hidden="true"></i> 47 Hai Bà Trưng, P. Mỹ Long, TP. Long Xuyên, Tỉnh An Giang</p>
+                </div>
+
+                <!-- Danh mục sản phẩm và hỗ trợ -->
+                <div class="col-md-2">
+                    <h4>SẢN PHẨM</h4>
+                    <ul>
+                        <li><a href="#">Vòng Đá Phong Thủy</a></li>
+                        <li><a href="#">Vòng Đá Thời Trang</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-2">
+                    <h4>HỖ TRỢ</h4>
+                    <ul>
+                        <li><a href="#">Hướng dẫn mua hàng</a></li>
+                        <li><a href="#">Chính sách bán hàng</a></li>
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Giao nhận & Thanh toán</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/javascript.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome 6 CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <title>Đăng kí</title>
+    <style>
+        html,
+        body {
+            height: auto;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .breadcrumb {
+            margin-top: 138px;
+        }
+        
+        .login-page {
+            min-height: calc(100vh - 200px);
+            margin-top: 138px;
+        }
+        
+        .login-box {
+            background: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: -108px;
+        }
+        
+        .login-img {
+            background-size: cover;
+            background-position: center;
+            width: 281px;
+            height: 100%;
+        }
+        
+        .login-form {
+            padding: 30px;
+        }
+        
+        .btn-login {
+            background-color: #6b1e1e;
+            color: #fff;
+        }
+        
+        .btn-login:hover {
+            background-color: #6b1e1e;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Loader -->
+    <div class="loader-wrapper">
+        <div class="loading-wave">
+            <div class="loading-bar"></div>
+            <div class="loading-bar"></div>
+            <div class="loading-bar"></div>
+            <div class="loading-bar"></div>
+        </div>
+    </div>
+    <header class="header-container text-dark py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="header-logo font-weight-bold"><img src="../img/LOGO4.png" alt="" class="logo"></div>
+            <nav class="header-nav">
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link text-light" href="#" onclick="scrollToSection('main')">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="#">Giới thiệu</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="#" onclick="scrollToSection('productions')">Sản phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="#">Bài viết</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="#">Liên hệ</a></li>
+                </ul>
+            </nav>
+            <div class="header-search" id="main">
+                <input type="text" class="form-control d-inline w-75" placeholder="Tìm kiếm...">
+                <button class="btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <!-- Button -->
+            <a href="../html/login.html" class="login">
+                <div class="sign">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                </div>
+                <div class="text"> Login</div>
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../html/index .html">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="#">Thành viên</a></li>
+                <li class="breadcrumb-item active text-primary" aria-current="page">Đăng ký tài khoản</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center login-page">
+            <div class="col-md-12">
+                <div class="row login-box">
+                    <!-- Hình ảnh bên trái -->
+                    <div class="col-md-3 p-0 d-none d-md-block">
+                        <div class="login-img" style="background-image: url('../img/login-img.png'); height: auto; min-height: 400px;"></div>
+                    </div>
+
+                    <!-- Form đăng ký -->
+                    <div class="col-md-9">
+                        <div class="login-form">
+                            <h4 class="text-center font-weight-bold mb-4" style="color: #6b1e1e">ĐĂNG KÝ TÀI KHOẢN</h4>
+                            <form>
+                                <div class="form-group">
+                                    <label for="fullname">Họ và tên:</label>
+                                    <input type="text" class="form-control" id="fullname" placeholder="Nhập họ và tên...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="username">Tên đăng nhập:</label>
+                                    <input type="text" class="form-control" id="username" placeholder="Nhập tên đăng nhập...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Mật khẩu:</label>
+                                    <input type="password" class="form-control" id="password" placeholder="Nhập mật khẩu...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Số điện thoại:</label>
+                                    <input type="tel" class="form-control" id="phone" placeholder="Nhập số điện thoại...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Nhập email...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="birthday">Ngày tháng năm sinh:</label>
+                                    <input type="date" class="form-control" id="birthday">
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">Địa chỉ:</label>
+                                    <input type="text" class="form-control" id="address" placeholder="Nhập địa chỉ...">
+                                </div>
+
+                                <button type="submit" class="btn btn-login btn-block mt-3">Đăng ký</button>
+                            </form>
+                            <div class="text-center mt-3">
+                                Bạn đã có tài khoản? <a href="../html/login.html" class="text-danger font-weight-bold">Đăng nhập ngay</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end login-box -->
+            </div>
+            <!-- Giỏ hàng -->
+            <div class="dropleft cart show">
+                <button type="button" class="btn shopping-cart-btn border-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa-solid fa-cart-shopping"></i>
+          <span class="num-item-in-cart rounded-circle" id="cartCount">0</span>
+        </button>
+                <div class="dropdown-menu rounded inner-cart">
+                    <div id="cartItemsContainer">
+                        <div class="dropdown-item figure text-center rounded-0 p-3 mx-auto empty-cart">
+                            <img src="../img/cart.png" height="100" alt="">
+                            <div class="figure-caption text-bg text-big">Chưa chọn sản phẩm nào</div>
+                        </div>
+                    </div>
+                    <div id="cartItemsContainer"></div>
+                    <a href="../html/pay.html">
+                        <button class="btn w-100 text-md mx-auto mt-3 pay-btn pay">Thanh toán</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- Logo và thông tin công ty -->
+                <div class="col-md-4">
+                    <img src="../img/LOGO2.jpg" alt="Tịnh Lâm" class="footer-logo">
+                    <p>© 2021 Bản quyền thuộc Công Ty TNHH Phong Thủy Tịnh Lâm</p>
+                    <p>Giấy chứng nhận đăng ký doanh nghiệp: 0316645318</p>
+                    <p>Địa chỉ: 280 E10 Lương Định Của, P. An Phú, Q. 2, TP. Hồ Chí Minh</p>
+                    <p>ĐT: 028 77799917</p>
+                </div>
+
+                <!-- Danh sách showroom -->
+                <div class="col-md-4">
+                    <h4>Showroom</h4>
+                    <p><i class="fa fa-map-marker" aria-hidden="true"></i> 280 E10 Lương Định Của, P. An Phú, Q.2, TP HCM</p>
+                    <p><i class="fa fa-map-marker marker-icon" aria-hidden="true"></i> 61C Phan Đình Phùng, P.17, Q.Phú Nhuận, TP HCM</p>
+                    <p><i class="fa fa-map-marker marker-icon" aria-hidden="true"></i> Tầng 2, chung cư 42 Nguyễn Huệ, P. Bến Nghé, Q.1, TP HCM</p>
+                    <p><i class="fa fa-map-marker marker-icon" aria-hidden="true"></i> 91 Xuân Thủy, P. Thảo Điền, Q.2, TP HCM</p>
+                    <p><i class="fa fa-map-marker marker-icon" aria-hidden="true"></i> 47 Hai Bà Trưng, P. Mỹ Long, TP. Long Xuyên, Tỉnh An Giang</p>
+                </div>
+
+                <!-- Danh mục sản phẩm và hỗ trợ -->
+                <div class="col-md-2">
+                    <h4>SẢN PHẨM</h4>
+                    <ul>
+                        <li><a href="#">Vòng Đá Phong Thủy</a></li>
+                        <li><a href="#">Vòng Đá Thời Trang</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-2">
+                    <h4>HỖ TRỢ</h4>
+                    <ul>
+                        <li><a href="#">Hướng dẫn mua hàng</a></li>
+                        <li><a href="#">Chính sách bán hàng</a></li>
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Giao nhận & Thanh toán</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
