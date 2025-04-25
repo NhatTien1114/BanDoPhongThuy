@@ -1,7 +1,7 @@
 // Loader
 setTimeout(function() {
     document.querySelector(".loader-wrapper").style.display = "none";
-}, 1500);
+}, 1000);
 
 document.addEventListener("DOMContentLoaded", function() {
     const tabs = document.querySelectorAll(".products-header h2");
